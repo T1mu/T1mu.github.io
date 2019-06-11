@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans,en,default">
+<html class="theme-next gemini use-motion" lang="zh-Hans,en,default">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="Computer/计算机">
+<meta name="description" content="汤国放的个人博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content=" MacOs挖坑		">
 <meta property="og:url" content="https://github.com/T1mu/T1mu.github.io/2019/04/30/macos-e6-8c-96-e5-9d-91/index.html">
-<meta property="og:site_name" content="T1mu&#39;s Blog&#x2F;汤国放的博客">
-<meta property="og:description" content="Computer/计算机">
+<meta property="og:site_name" content="T1mu&#39;s Blog">
+<meta property="og:description" content="汤国放的个人博客">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-06-11T08:38:09.165Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content=" MacOs挖坑		">
-<meta name="twitter:description" content="Computer/计算机">
+<meta name="twitter:description" content="汤国放的个人博客">
 
 
 
@@ -112,8 +112,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: true,
@@ -139,7 +139,7 @@
 
 
 
-  <title> MacOs挖坑		 | T1mu's Blog/汤国放的博客</title>
+  <title> MacOs挖坑		 | T1mu's Blog</title>
   
 
 
@@ -175,12 +175,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">T1mu's Blog/汤国放的博客</span>
+        <span class="site-title">T1mu's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle">Be sb. Clean&Clear/变得可伶可俐</p>
+        <p class="site-subtitle">Be sb. Clean&Clear</p>
       
   </div>
 
@@ -206,6 +206,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -271,7 +281,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+      <meta itemprop="name" content="T1mu's Blog">
     </span>
 
     
@@ -445,7 +455,7 @@
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="TimJ3ly">
           <p class="site-author-name" itemprop="name">TimJ3ly</p>
            
-              <p class="site-description motion-element" itemprop="description">Computer/计算机</p>
+              <p class="site-description motion-element" itemprop="description">汤国放的个人博客</p>
           
         </div>
         <nav class="site-state motion-element">
@@ -463,10 +473,10 @@
             
             
             <div class="site-state-item site-state-categories">
-              
+              <a href="/categories/index.html">
                 <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">分类</span>
-              
+              </a>
             </div>
           
 
@@ -516,7 +526,7 @@
       <div class="footer-inner">
         <div class="copyright">
   
-  &copy; 
+  &copy;  2018 - 
   <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -526,16 +536,45 @@
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+  感谢
 </div>
 
 <div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
+  阅读 
 </div>
 
+
+<!--添加网站的运行时间-->
+<span id="sitetime"> <br></span>
+<script language="javascript">
+  function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    var seconds = 1000
+    var minutes = seconds * 60
+    var hours = minutes * 60
+    var days = hours * 24
+    var years = days * 365
+
+    var today = new Date()
+    var todayYear = today.getFullYear()
+    var todayMonth = today.getMonth()
+    var todayDate = today.getDate()
+    var todayHour = today.getHours()
+    var todayMinute = today.getMinutes()
+    var todaySecond = today.getSeconds()
+    var t1 = Date.UTC(2017,4,18,11,00,00)
+    var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond)
+    var diff = t2-t1
+
+    var diffYears = Math.floor(diff/years)
+    var diffDays = Math.floor((diff/days)-diffYears*365)
+    var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours)
+    var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes)
+    var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds)
+    document.getElementById("sitetime").innerHTML=" \r 本站已运行"+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒<br>"
+  }
+  siteTime()
+</script>
 
         
 
@@ -546,6 +585,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -575,6 +616,9 @@
 
 
 
+  
+  
+
 
 
 
@@ -599,6 +643,12 @@
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/canvas_lines.min.js"></script>
+
 
   
 
@@ -611,6 +661,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
