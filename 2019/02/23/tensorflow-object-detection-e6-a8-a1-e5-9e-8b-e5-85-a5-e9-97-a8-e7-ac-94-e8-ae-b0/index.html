@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="Simplified  Chinese/简体中文">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="object-detection,Quick Start,Tensorflow-Object Detection,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="@toc Object Detection模型入门笔记各大公司的招聘都明确要求：熟悉Tensorflow框架，遂捣鼓。搭建环境 linux的入门学习笔记 anaconda的安装 conda 命令学习笔记 Tensorflow 的安装    git clone Tensorflow模型 linux的入门学习笔记 git命令的学习笔记    快速开始Quick Start: Jupyter noteb">
+<meta name="keywords" content="object-detection,Quick Start,Tensorflow-Object Detection">
+<meta property="og:type" content="article">
+<meta property="og:title" content=" Tensorflow-Object Detection模型入门笔记		">
+<meta property="og:url" content="https://github.com/T1mu/T1mu.github.io/2019/02/23/tensorflow-object-detection-e6-a8-a1-e5-9e-8b-e5-85-a5-e9-97-a8-e7-ac-94-e8-ae-b0/index.html">
+<meta property="og:site_name" content="T1mu&#39;s Blog&#x2F;汤国放的博客">
+<meta property="og:description" content="@toc Object Detection模型入门笔记各大公司的招聘都明确要求：熟悉Tensorflow框架，遂捣鼓。搭建环境 linux的入门学习笔记 anaconda的安装 conda 命令学习笔记 Tensorflow 的安装    git clone Tensorflow模型 linux的入门学习笔记 git命令的学习笔记    快速开始Quick Start: Jupyter noteb">
+<meta property="og:locale" content="Simplified  Chinese/简体中文">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190223141314469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190223141411625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190223141433654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190223141450764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-06-11T08:38:09.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content=" Tensorflow-Object Detection模型入门笔记		">
+<meta name="twitter:description" content="@toc Object Detection模型入门笔记各大公司的招聘都明确要求：熟悉Tensorflow框架，遂捣鼓。搭建环境 linux的入门学习笔记 anaconda的安装 conda 命令学习笔记 Tensorflow 的安装    git clone Tensorflow模型 linux的入门学习笔记 git命令的学习笔记    快速开始Quick Start: Jupyter noteb">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190223141314469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/T1mu/T1mu.github.io/2019/02/23/tensorflow-object-detection-e6-a8-a1-e5-9e-8b-e5-85-a5-e9-97-a8-e7-ac-94-e8-ae-b0/">
+
+
+
+
+
+  <title> Tensorflow-Object Detection模型入门笔记		 | T1mu's Blog/汤国放的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="Simplified  Chinese/简体中文">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T1mu's Blog/汤国放的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Be sb. Clean&Clear/变得可伶可俐</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/02/23/tensorflow-object-detection-e6-a8-a1-e5-9e-8b-e5-85-a5-e9-97-a8-e7-ac-94-e8-ae-b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"> Tensorflow-Object Detection模型入门笔记		</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T13:56:45+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>@<a href="Tensorflow的入门笔记">toc</a></p>
+<h1 id="Object-Detection模型入门笔记"><a href="#Object-Detection模型入门笔记" class="headerlink" title="Object Detection模型入门笔记"></a>Object Detection模型入门笔记</h1><pre><code>各大公司的招聘都明确要求：熟悉Tensorflow框架，遂捣鼓。</code></pre><h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><ul>
+<li><a href="https://blog.csdn.net/neninee/article/details/87878221">linux的入门学习笔记</a><ul>
+<li>anaconda的安装</li>
+<li>conda 命令学习笔记</li>
+<li><a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md">Tensorflow 的安装</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="git-clone-Tensorflow模型"><a href="#git-clone-Tensorflow模型" class="headerlink" title="git clone Tensorflow模型"></a>git clone Tensorflow模型</h2><ul>
+<li><a href="https://blog.csdn.net/neninee/article/details/87878221">linux的入门学习笔记</a><ul>
+<li>git命令的学习笔记</li>
+</ul>
+</li>
+</ul>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="Quick-Start-Jupyter-notebook-for-off-the-shelf-inference"><a href="#Quick-Start-Jupyter-notebook-for-off-the-shelf-inference" class="headerlink" title="Quick Start: Jupyter notebook for off-the-shelf inference"></a>Quick Start: Jupyter notebook for off-the-shelf inference</h3><pre><code>(base) timj3ly@Tim-J3ly:~$ source activate py36
+(py36) timj3ly@Tim-J3ly:~$ cd models/research/object_detection
+(py36) timj3ly@Tim-J3ly:~/models/research/object_detection$ jupyter notebook
+[I 14:11:36.542 NotebookApp] 启动notebooks 在本地路径: /home/timj3ly/models/research/object_detection
+[I 14:11:36.542 NotebookApp] 本程序运行在: http://localhost:8888/?token=fc5b40a930b6ed66d76b5ee70099dfafb2c09f7d0329afa0
+[I 14:11:36.542 NotebookApp] 使用control-c停止此服务器并关闭所有内核(两次跳过确认).
+[C 14:11:36.546 NotebookApp] 
+
+    To access the notebook, open this file in a browser:
+        file:///run/user/1000/jupyter/nbserver-5607-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=fc5b40a930b6ed66d76b5ee70099dfafb2c09f7d0329afa0
+[5661:5661:0223/141136.828649:ERROR:sandbox_linux.cc(364)] InitializeSandbox() called with multiple threads in process gpu-process.
+[5620:5641:0223/141136.846376:ERROR:browser_process_sub_thread.cc(209)] Waited 3 ms for network service
+正在现有的浏览器会话中打开。</code></pre><p><img src="https://img-blog.csdnimg.cn/20190223141314469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190223141411625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190223141433654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190223141450764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>结果：  </p>
+<h4 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h4><ul>
+<li><p>整体代码</p>
+<p>import numpy as np<br>import os<br>import six.moves.urllib as urllib<br>import sys<br>import tarfile<br>import tensorflow as tf<br>import zipfile</p>
+<p>from collections import defaultdict<br>from io import StringIO<br>from matplotlib import pyplot as plt<br>from PIL import Image</p>
+<h2 id="This-is-needed-to-display-the-images"><a href="#This-is-needed-to-display-the-images" class="headerlink" title="This is needed to display the images."></a>This is needed to display the images.</h2><p>#%matplotlib inline</p>
+<h1 id="This-is-needed-since-the-notebook-is-stored-in-the-object-detection-folder"><a href="#This-is-needed-since-the-notebook-is-stored-in-the-object-detection-folder" class="headerlink" title="This is needed since the notebook is stored in the object_detection folder."></a>This is needed since the notebook is stored in the object_detection folder.</h1><p>sys.path.append(“..”)</p>
+<p>from utils import label_map_util</p>
+<p>from utils import visualization_utils as vis_util</p>
+<h1 id="What-model-to-download"><a href="#What-model-to-download" class="headerlink" title="What model to download."></a>What model to download.</h1><p>MODEL_NAME = ‘ssd_mobilenet_v1_coco_11_06_2017’<br>MODEL_FILE = MODEL_NAME + ‘.tar.gz’<br>DOWNLOAD_BASE = ‘<a href="http://download.tensorflow.org/models/object_detection/&#39;">http://download.tensorflow.org/models/object_detection/&#39;</a></p>
+<h1 id="Path-to-frozen-detection-graph-This-is-the-actual-model-that-is-used-for-the-object-detection"><a href="#Path-to-frozen-detection-graph-This-is-the-actual-model-that-is-used-for-the-object-detection" class="headerlink" title="Path to frozen detection graph. This is the actual model that is used for the object detection."></a>Path to frozen detection graph. This is the actual model that is used for the object detection.</h1><p>PATH_TO_CKPT = MODEL_NAME + ‘/frozen_inference_graph.pb’</p>
+<h1 id="List-of-the-strings-that-is-used-to-add-correct-label-for-each-box"><a href="#List-of-the-strings-that-is-used-to-add-correct-label-for-each-box" class="headerlink" title="List of the strings that is used to add correct label for each box."></a>List of the strings that is used to add correct label for each box.</h1><p>PATH_TO_LABELS = os.path.join(‘data’, ‘mscoco_label_map.pbtxt’)</p>
+<p>NUM_CLASSES = 90</p>
+<p>#download model<br>#opener = urllib.request.URLopener()<br>#下载模型，如果已经下载好了下面这句代码可以注释掉<br>#opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)<br>tar_file = tarfile.open(MODEL_FILE)<br>for file in tar_file.getmembers():<br>  file_name = os.path.basename(file.name)<br>  if ‘frozen_inference_graph.pb’ in file_name:</p>
+<pre><code>tar_file.extract(file, os.getcwd())</code></pre><p>#Load a (frozen) Tensorflow model into memory.<br>detection_graph = tf.Graph()<br>with detection_graph.as_default():<br>  od_graph_def = tf.GraphDef()<br>  with tf.gfile.GFile(PATH_TO_CKPT, ‘rb’) as fid:</p>
+<pre><code>serialized_graph = fid.read()
+od_graph_def.ParseFromString(serialized_graph)
+tf.import_graph_def(od_graph_def, name=&apos;&apos;)</code></pre><p>#Loading label map<br>label_map = label_map_util.load_labelmap(PATH_TO_LABELS)<br>categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)<br>category_index = label_map_util.create_category_index(categories)<br>#Helper code<br>def load_image_into_numpy_array(image):<br>  (im_width, im_height) = image.size<br>  return np.array(image.getdata()).reshape(</p>
+<pre><code>(im_height, im_width, 3)).astype(np.uint8)</code></pre></li>
+</ul>
+<pre><code># For the sake of simplicity we will use only 2 images:
+# image1.jpg
+# image2.jpg
+# If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
+PATH_TO_TEST_IMAGES_DIR = &apos;test_images&apos;
+TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, &apos;image{}.jpg&apos;.format(i)) for i in range(1, 5) ]
+
+# Size, in inches, of the output images.
+IMAGE_SIZE = (30, 20)
+
+def run_inference_for_single_image(image, graph):
+  with graph.as_default():
+    with tf.Session() as sess:
+      # Get handles to input and output tensors
+      ops = tf.get_default_graph().get_operations()
+      all_tensor_names = {output.name for op in ops for output in op.outputs}
+      tensor_dict = {}
+      for key in [
+          &apos;num_detections&apos;, &apos;detection_boxes&apos;, &apos;detection_scores&apos;,
+          &apos;detection_classes&apos;, &apos;detection_masks&apos;
+      ]:
+        tensor_name = key + &apos;:0&apos;
+        if tensor_name in all_tensor_names:
+          tensor_dict[key] = tf.get_default_graph().get_tensor_by_name(
+              tensor_name)
+      if &apos;detection_masks&apos; in tensor_dict:
+        # The following processing is only for single image
+        detection_boxes = tf.squeeze(tensor_dict[&apos;detection_boxes&apos;], [0])
+        detection_masks = tf.squeeze(tensor_dict[&apos;detection_masks&apos;], [0])
+        # Reframe is required to translate mask from box coordinates to image coordinates and fit the image size.
+        real_num_detection = tf.cast(tensor_dict[&apos;num_detections&apos;][0], tf.int32)
+        detection_boxes = tf.slice(detection_boxes, [0, 0], [real_num_detection, -1])
+        detection_masks = tf.slice(detection_masks, [0, 0, 0], [real_num_detection, -1, -1])
+        detection_masks_reframed = utils_ops.reframe_box_masks_to_image_masks(
+            detection_masks, detection_boxes, image.shape[0], image.shape[1])
+        detection_masks_reframed = tf.cast(
+            tf.greater(detection_masks_reframed, 0.5), tf.uint8)
+        # Follow the convention by adding back the batch dimension
+        tensor_dict[&apos;detection_masks&apos;] = tf.expand_dims(
+            detection_masks_reframed, 0)
+      image_tensor = tf.get_default_graph().get_tensor_by_name(&apos;image_tensor:0&apos;)
+
+      # Run inference
+      output_dict = sess.run(tensor_dict,
+                             feed_dict={image_tensor: np.expand_dims(image, 0)})
+
+      # all outputs are float32 numpy arrays, so convert types as appropriate
+      output_dict[&apos;num_detections&apos;] = int(output_dict[&apos;num_detections&apos;][0])
+      output_dict[&apos;detection_classes&apos;] = output_dict[
+          &apos;detection_classes&apos;][0].astype(np.uint8)
+      output_dict[&apos;detection_boxes&apos;] = output_dict[&apos;detection_boxes&apos;][0]
+      output_dict[&apos;detection_scores&apos;] = output_dict[&apos;detection_scores&apos;][0]
+      if &apos;detection_masks&apos; in output_dict:
+        output_dict[&apos;detection_masks&apos;] = output_dict[&apos;detection_masks&apos;][0]
+  return output_dict
+for image_path in TEST_IMAGE_PATHS:
+  image = Image.open(image_path)
+  # the array based representation of the image will be used later in order to prepare the
+  # result image with boxes and labels on it.
+  image_np = load_image_into_numpy_array(image)
+  # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+  image_np_expanded = np.expand_dims(image_np, axis=0)
+  # Actual detection.
+  output_dict = run_inference_for_single_image(image_np, detection_graph)
+  # Visualization of the results of a detection.
+  vis_util.visualize_boxes_and_labels_on_image_array(
+      image_np,
+      output_dict[&apos;detection_boxes&apos;],
+      output_dict[&apos;detection_classes&apos;],
+      output_dict[&apos;detection_scores&apos;],
+      category_index,
+      instance_masks=output_dict.get(&apos;detection_masks&apos;),
+      use_normalized_coordinates=True,
+      line_thickness=1)
+  plt.figure(figsize=IMAGE_SIZE)
+  plt.imshow(image_np)</code></pre><p>tips:如果在Spyder中跑不出图片，需要再运行.py之前在terminal输入%matplotlib inline</p>
+<p>[1]</p>
+<pre><code># Imports
+import numpy as np
+import os
+import six.moves.urllib as urllib
+import sys
+import tarfile
+import tensorflow as tf
+import zipfile
+
+from distutils.version import StrictVersion
+from collections import defaultdict
+from io import StringIO
+from matplotlib import pyplot as plt
+from PIL import Image
+
+# This is needed since the notebook is stored in the object_detection folder.
+sys.path.append(&quot;..&quot;)#当前路径是:models/research/object_detection,cd .. 后即返回上一级目录，目的是为了导入object_detection模块
+
+from object_detection.utils import ops as utils_ops
+
+if StrictVersion(tf.__version__) &lt; StrictVersion(&apos;1.9.0&apos;):#Tensorflow版本比较
+  raise ImportError(&apos;Please upgrade your TensorFlow installation to v1.9.* or later!&apos;)</code></pre><ul>
+<li>Modules：<br>numpy：NumPy is the fundamental package for scientific computing with Python.<br>os — <strong>Miscellaneous</strong> operating system interfaces<br>urllib — URL handling modules<br>sys — System-specific <strong>parameters</strong> and functions<br>tarfile — Read and write tar archive files<br>zipfile — Work with ZIP archives<br>StrictVersion — 比较版本<br>Collections — This module <strong>implements</strong> specialized container datatypes providing alternatives to Python’s general purpose built-in containers, dict, list, set, and tuple.<br>io — The io module provides the Python interfaces to <strong>stream</strong> handling. The <strong>builtin</strong> open function is defined in this module.<br><strong>matplotlib</strong> — This is an object-oriented <strong>plotting</strong> library.<br><strong>PIL</strong> — Pillow (Fork of the Python Imaging Library)<br>utils：实用程序类</li>
+</ul>
+<p>[2]</p>
+<pre><code>#Env setup
+# This is needed to display the images.用来显示图片
+# %matplotlib inline 会出错 安装Jupyter插件
+#%%</code></pre><p>[3]</p>
+<pre><code># Object detection imports
+# Here are the imports from the object detection module.
+
+from utils import label_map_util
+
+from utils import visualization_utils as vis_util</code></pre><ul>
+<li>Modules:<ul>
+<li>module utils.label_map_util:Label map <strong>utility</strong> functions.</li>
+<li>module utils.visualization_utils<br>A set of functions that are used for visualization.<br>These functions often receive an image, perform some visualization on the image. The functions do not return a value, instead they modify the image itself.（在原图上进行标记用的Modules）</li>
+</ul>
+</li>
+</ul>
+<p>[4]</p>
+<pre><code>#[4]
+# Model preparation
+# Variables
+# Any model exported using the export_inference_graph.py tool can be loaded here simply by changing PATH_TO_FROZEN_GRAPH to point to a new .pb file.
+#所有用export_inference_graph.py这个工具导出的模型，都可以通过将PATH_TO_FROZEN_GRAPH转换成新的.pb文件来导入到工程文件中。
+
+# By default we use an &quot;SSD with Mobilenet&quot; model here. See the detection model zoo for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
+#我们使用SSDwithMobilenet这个模型
+
+# What model to download.
+MODEL_NAME = &apos;ssd_mobilenet_v1_coco_2017_11_17&apos;
+MODEL_FILE = MODEL_NAME + &apos;.tar.gz&apos;#模型名称
+DOWNLOAD_BASE = &apos;http://download.tensorflow.org/models/object_detection/&apos;#模型父地址
+
+# Path to frozen detection graph. This is the actual model that is used for the object detection.
+PATH_TO_FROZEN_GRAPH = MODEL_NAME + &apos;/frozen_inference_graph.pb&apos;
+
+# List of the strings that is used to add correct label for each box.
+PATH_TO_LABELS = os.path.join(&apos;data&apos;, &apos;mscoco_label_map.pbtxt&apos;)</code></pre><p>[5]</p>
+<pre><code>#Download Model
+opener = urllib.request.URLopener()
+opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
+tar_file = tarfile.open(MODEL_FILE)
+for file in tar_file.getmembers():
+  file_name = os.path.basename(file.name)
+  if &apos;frozen_inference_graph.pb&apos; in file_name:
+    tar_file.extract(file, os.getcwd())</code></pre><ul>
+<li>urllib.request<br>The urllib.request module defines functions and classes which help in opening URLs (mostly HTTP) in a complex world — basic and digest <strong>au_th_entication</strong>, <strong>redirections</strong>, cookies and more.</li>
+<li>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None )<br>Open the URL url, which can be either a string or a Request object. data must be an object specifying additional data to be sent to the server, or None if no such data is needed. See Request for details</li>
+<li>def getmembers()<br>Return the members of the archive as a list of TarInfo objects. The list has the same order as the members in the archive.<br>-def basename(p)<br>Returns the final component of a pathname<br>-def extract(member, path=””, set_attrs=True, numeric_owner=False)<br>Extract a member from the archive to the current working directory, using its full name. Its file information is extracted as accurately as possible. member’ may be a filename or a TarInfo object. You can specify a different directory usingpath’. File attributes (owner, mtime, mode) are set unless set_attrs’ is False. Ifnumeric_owner` is True, only the numbers for user/group names are used and not the names.</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/object-detection/" rel="tag"># object-detection</a>
+          
+            <a href="/tags/Quick-Start/" rel="tag"># Quick Start</a>
+          
+            <a href="/tags/Tensorflow-Object-Detection/" rel="tag"># Tensorflow-Object Detection</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/17/e5-b0-8f-e7-8b-bc-e6-af-ab-e8-87-aa-e5-ae-9a-e4-b9-89-e7-9f-ad-e8-af-ad-rime-e5-8f-8c-e6-8b-bc/" rel="next" title=" Ubuntu 18.04 下安装shadowsocks		">
+                <i class="fa fa-chevron-left"></i>  Ubuntu 18.04 下安装shadowsocks		
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/23/e8-a7-a3-e5-86-b3-e9-97-ae-e9-a2-98-ef-bc-9auserwarning-matplotlib-is-currently-using-agg-which-is-a-non-gui-backend/" rel="prev" title=" 解决问题：UserWarning: Matplotlib is currently using agg, which is a non-GUI backend.		">
+                 解决问题：UserWarning: Matplotlib is currently using agg, which is a non-GUI backend.		 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="TimJ3ly">
+          <p class="site-author-name" itemprop="name">TimJ3ly</p>
+           
+              <p class="site-description motion-element" itemprop="description">Computer/计算机</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Object-Detection模型入门笔记"><span class="nav-number">1.</span> <span class="nav-text">Object Detection模型入门笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建环境"><span class="nav-number">1.1.</span> <span class="nav-text">搭建环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-Tensorflow模型"><span class="nav-number">1.2.</span> <span class="nav-text">git clone Tensorflow模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速开始"><span class="nav-number">1.3.</span> <span class="nav-text">快速开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quick-Start-Jupyter-notebook-for-off-the-shelf-inference"><span class="nav-number">1.3.1.</span> <span class="nav-text">Quick Start: Jupyter notebook for off-the-shelf inference</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码分析"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">代码分析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#This-is-needed-to-display-the-images"><span class="nav-number">1.4.</span> <span class="nav-text">This is needed to display the images.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#This-is-needed-since-the-notebook-is-stored-in-the-object-detection-folder"><span class="nav-number">2.</span> <span class="nav-text">This is needed since the notebook is stored in the object_detection folder.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#What-model-to-download"><span class="nav-number">3.</span> <span class="nav-text">What model to download.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Path-to-frozen-detection-graph-This-is-the-actual-model-that-is-used-for-the-object-detection"><span class="nav-number">4.</span> <span class="nav-text">Path to frozen detection graph. This is the actual model that is used for the object detection.</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#List-of-the-strings-that-is-used-to-add-correct-label-for-each-box"><span class="nav-number">5.</span> <span class="nav-text">List of the strings that is used to add correct label for each box.</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TimJ3ly</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

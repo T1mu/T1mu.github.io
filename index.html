@@ -621,9 +621,1332 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/06/08/ip-e8-a2-ab-e5-b0-81-cloudflare-e4-b8-ad-e8-bd-acv2ray-e6-8b-af-e6-95-91-e4-bd-a0-e7-9a-84-e5-9b-bd-e5-a4-96vps-ip/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/08/ip-e8-a2-ab-e5-b0-81-cloudflare-e4-b8-ad-e8-bd-acv2ray-e6-8b-af-e6-95-91-e4-bd-a0-e7-9a-84-e5-9b-bd-e5-a4-96vps-ip/" itemprop="url"> IP被封 Cloudflare中转V2Ray拯救你的国外VPS-IP		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-08T12:48:14+08:00">
+                2019-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/V2Ray/" itemprop="url" rel="index">
+                    <span itemprop="name">V2Ray</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/V2Ray/远程服务器/" itemprop="url" rel="index">
+                    <span itemprop="name">远程服务器</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>检测IP在国内是否被墙:(<a href="http://www.ping.pe">www.ping.pe</a>)</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/06/image.png" alt></p>
+<p>ping.pe网站  </p>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/06/image-1.png" alt></p>
+<p>IP测试结果图  </p>
+<p>若国内服务器ping均不通的某地址（右侧显示均为红色矩形），可以断定此地址在国内被墙</p>
+<ul>
+<li>准备工作：</li>
+<li>域名一枚\VPS一台</li>
+</ul>
+<p>如果读者没有个人域名，可以在Godaddy\阿里云\其他渠道购买（有免费域名，请自行查找）。</p>
+<p>笔者用的是Godaddy的域名和BandwagonVPS一台。</p>
+<ul>
+<li>具体工作：</li>
+<li>登入CloudFlare（<a href="http://www.cloudflare.com">www.cloudflare.com</a>）</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/06/image-2.png" alt></p>
+<p>cloudflare官网  </p>
+<p>注册并登入</p>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/06/image-3.png" alt></p>
+<p>在DNS中键入读者的域名与IP地址</p>
+<p><img src="https://eveaz.com/wp-content/uploads/2019060411.jpg" alt></p>
+<p>修改DNS服务器</p>
+<p>复制To选框下的内容至读者域名服务商的DNS域名服务器</p>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/06/image-4.png" alt></p>
+<p>DNS管理界面  </p>
+<ul>
+<li>在VPS上搭建V2Ray</li>
+</ul>
+<p>ROOT权限SSH登录到VPS，运行脚本</p>
+<p>bash &lt;(curl -s -L <a href="https://git.io/v2ray.sh">https://git.io/v2ray.sh</a>)</p>
+<p>默认配置运行下去即可</p>
+<p>成功界面如下：</p>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/06/image-5.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/05/07/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e4-ba-94-e6-9c-88-e5-85-ad-e6-97-a5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/07/e4-ba-8c-e3-80-87-e4-b8-80-e4-b9-9d-e5-b9-b4-e4-ba-94-e6-9c-88-e5-85-ad-e6-97-a5/" itemprop="url"> 二〇一九年五月六日		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T03:32:15+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/未分类/" itemprop="url" rel="index">
+                    <span itemprop="name">未分类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="近况"><a href="#近况" class="headerlink" title="近况"></a>近况</h2><p>自从来重庆这个城市上学后，不同地方的朋友来找我玩。</p>
+<p>小雷是第五个来的朋友，现在睡在我的床上。</p>
+<p>丧：</p>
+<ul>
+<li>刚买的iPhone XR进水了</li>
+<li>意识到我和心仪的女孩的价值观有部分冲突</li>
+<li>又变胖了</li>
+<li>少了很多独立思考的时间</li>
+</ul>
+<p>喜：</p>
+<ul>
+<li>想去做公务员，家乡的乡镇单位</li>
+</ul>
+<h2 id="计划"><a href="#计划" class="headerlink" title="计划"></a>计划</h2><p>公务员</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/04/30/macos-e6-8c-96-e5-9d-91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/30/macos-e6-8c-96-e5-9d-91/" itemprop="url"> MacOs挖坑		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-30T17:15:08+08:00">
+                2019-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Software/" itemprop="url" rel="index">
+                    <span itemprop="name">Software</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/04/29/e6-90-ad-e5-bb-bashadowsocksr-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-8e-8c-e6-8e-a7-e8-87-aa-e5-b7-b1-e7-9a-84-e5-b0-8f-e6-a2-af-e5-ad-90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/29/e6-90-ad-e5-bb-bashadowsocksr-e6-9c-8d-e5-8a-a1-e5-99-a8-e6-8e-8c-e6-8e-a7-e8-87-aa-e5-b7-b1-e7-9a-84-e5-b0-8f-e6-a2-af-e5-ad-90/" itemprop="url"> 搭建Shadowsocks(R)服务器-掌控自己的小梯子		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T14:36:51+08:00">
+                2019-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shadowsocks/" itemprop="url" rel="index">
+                    <span itemprop="name">Shadowsocks</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="缘由："><a href="#缘由：" class="headerlink" title="缘由："></a>缘由：</h2><p>搬瓦工（Bandwagon）的服务器给出的一键搭建SS只能在<strong>Centos 6</strong> 系统上运行，因为我将服务器换成了Ubuntu 16.04，所以不能一键搭建了，遂捣鼓</p>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/04/image.png" alt></p>
+<p>搬瓦工提供的一键搭建服务  </p>
+<h2 id="准备工作："><a href="#准备工作：" class="headerlink" title="准备工作："></a>准备工作：</h2><ol>
+<li>有一台自己的<strong>境外服务器</strong>（我用的bandwagon）；</li>
+<li><strong>Xshell</strong>或其他可以ssh你的服务器的软件；</li>
+</ol>
+<h2 id="Quick-Start-快速开始："><a href="#Quick-Start-快速开始：" class="headerlink" title="Quick Start-快速开始："></a>Quick Start-快速开始：</h2><p>这里用到的是github上<strong>doubi</strong>大佬的一键脚本</p>
+<p>因为其他原因，此人的搭建脚本已经不更新了，github也已不是本人维护了，他的github地址： <a href="https://github.com/ToyoDAdoubi/">https://github.com/ToyoDAdoubi/</a></p>
+<ul>
+<li>打开Xshell或其他可以ssh服务器的软件：</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/04/image-1.png" alt></p>
+<p>Xshell登录界面  </p>
+<ul>
+<li>输入服务器root密码后即可进入shell命令行：</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/04/image-2.png" alt></p>
+<ul>
+<li><p>在命令行输入：</p>
+<p>wget -N –no-check-certificate <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh">https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh</a> &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</p>
+</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/04/image-3.png" alt></p>
+<ul>
+<li>输入1，<strong>端口号/密码</strong> 自行选择，其他配置安装我的配置来即可完成ss的服务器搭建（降低ip被墙的概率）</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/04/image-4.png" alt></p>
+<p>Shadowsocks配置详情</p>
+<ul>
+<li>最后在Shadowsocks或ShadowsocksR上配置服务器即可翻墙</li>
+</ul>
+<p><img src="http://timj3ly.com/wp-content/uploads/2019/04/image-5.png" alt></p>
+<p>shadowsocks配置图</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/02/23/e8-a7-a3-e5-86-b3-e9-97-ae-e9-a2-98-ef-bc-9auserwarning-matplotlib-is-currently-using-agg-which-is-a-non-gui-backend/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/23/e8-a7-a3-e5-86-b3-e9-97-ae-e9-a2-98-ef-bc-9auserwarning-matplotlib-is-currently-using-agg-which-is-a-non-gui-backend/" itemprop="url"> 解决问题：UserWarning: Matplotlib is currently using agg, which is a non-GUI backend.		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T14:25:19+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在运行TensorFlow.Object_Detection时遇到问题：UserWarning: Matplotlib is currently using agg, which is a non-GUI backend.<br><strong>检测物体最终生成的图片无法在终端显示</strong></p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>编辑tensorflow所在目录下的 <strong>models/research/object_detection/uitls/visualization_utils.py</strong><br><strong>修改26行的Agg为Qt5Agg</strong></p>
+<pre><code>import matplotlib; matplotlib.use(&apos;Qt5Agg&apos;) </code></pre><h2 id="问题处理过程"><a href="#问题处理过程" class="headerlink" title="问题处理过程"></a>问题处理过程</h2><ul>
+<li>一  
+Warning中显示UserWarning: Matplotlib is currently using <strong>agg</strong>, which is a <strong>non-GUI backend</strong>.（agg是一个<strong>没有图形显示界面的终端</strong>，查询资料常用的有图形界面显示的终端名称为 <strong>Qt5Agg</strong>。） 于是在代码首行添加： <code>import matplotlib matplotlib.use(&#39;agg&#39;)</code> 再次运行，仍显示相同的Warning，失败。</li>
+<li>二  
+既然已经设置了终端使用Qt5Agg，错误显示终端仍然是Agg，<strong>那一定是代码运行过程中终端被修改</strong><ul>
+<li>ctrl+f 查询’Agg’字样代码<br>没有，卒 。既然代码中没有直接修改终端的类型，<strong>那就一定是在引入库的过程终端类型中被修改。</strong></li>
+<li>使用方法 <code>print(matplotlib.get_backend())</code> （查看当前matplotlib使用的终端类型）将穿插在每一个库import之后，再次运行发现是在 <code>from utils import visualization_utils as vis_util</code> 后终端由Qt5Agg变成Agg</li>
+<li>遂打开 <strong>visualization_utils.py</strong>在26行发现了直接定义matplotlib终端类型，修改即可√</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/02/23/tensorflow-object-detection-e6-a8-a1-e5-9e-8b-e5-85-a5-e9-97-a8-e7-ac-94-e8-ae-b0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/23/tensorflow-object-detection-e6-a8-a1-e5-9e-8b-e5-85-a5-e9-97-a8-e7-ac-94-e8-ae-b0/" itemprop="url"> Tensorflow-Object Detection模型入门笔记		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-23T13:56:45+08:00">
+                2019-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Tensorflow/" itemprop="url" rel="index">
+                    <span itemprop="name">Tensorflow</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>@<a href="Tensorflow的入门笔记">toc</a></p>
+<h1 id="Object-Detection模型入门笔记"><a href="#Object-Detection模型入门笔记" class="headerlink" title="Object Detection模型入门笔记"></a>Object Detection模型入门笔记</h1><pre><code>各大公司的招聘都明确要求：熟悉Tensorflow框架，遂捣鼓。</code></pre><h2 id="搭建环境"><a href="#搭建环境" class="headerlink" title="搭建环境"></a>搭建环境</h2><ul>
+<li><a href="https://blog.csdn.net/neninee/article/details/87878221">linux的入门学习笔记</a><ul>
+<li>anaconda的安装</li>
+<li>conda 命令学习笔记</li>
+<li><a href="https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/installation.md">Tensorflow 的安装</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="git-clone-Tensorflow模型"><a href="#git-clone-Tensorflow模型" class="headerlink" title="git clone Tensorflow模型"></a>git clone Tensorflow模型</h2><ul>
+<li><a href="https://blog.csdn.net/neninee/article/details/87878221">linux的入门学习笔记</a><ul>
+<li>git命令的学习笔记</li>
+</ul>
+</li>
+</ul>
+<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="Quick-Start-Jupyter-notebook-for-off-the-shelf-inference"><a href="#Quick-Start-Jupyter-notebook-for-off-the-shelf-inference" class="headerlink" title="Quick Start: Jupyter notebook for off-the-shelf inference"></a>Quick Start: Jupyter notebook for off-the-shelf inference</h3><pre><code>(base) timj3ly@Tim-J3ly:~$ source activate py36
+(py36) timj3ly@Tim-J3ly:~$ cd models/research/object_detection
+(py36) timj3ly@Tim-J3ly:~/models/research/object_detection$ jupyter notebook
+[I 14:11:36.542 NotebookApp] 启动notebooks 在本地路径: /home/timj3ly/models/research/object_detection
+[I 14:11:36.542 NotebookApp] 本程序运行在: http://localhost:8888/?token=fc5b40a930b6ed66d76b5ee70099dfafb2c09f7d0329afa0
+[I 14:11:36.542 NotebookApp] 使用control-c停止此服务器并关闭所有内核(两次跳过确认).
+[C 14:11:36.546 NotebookApp] 
+
+    To access the notebook, open this file in a browser:
+        file:///run/user/1000/jupyter/nbserver-5607-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=fc5b40a930b6ed66d76b5ee70099dfafb2c09f7d0329afa0
+[5661:5661:0223/141136.828649:ERROR:sandbox_linux.cc(364)] InitializeSandbox() called with multiple threads in process gpu-process.
+[5620:5641:0223/141136.846376:ERROR:browser_process_sub_thread.cc(209)] Waited 3 ms for network service
+正在现有的浏览器会话中打开。</code></pre><p><img src="https://img-blog.csdnimg.cn/20190223141314469.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190223141411625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190223141433654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190223141450764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>结果：  </p>
+<h4 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h4><ul>
+<li><p>整体代码</p>
+<p>import numpy as np<br>import os<br>import six.moves.urllib as urllib<br>import sys<br>import tarfile<br>import tensorflow as tf<br>import zipfile</p>
+<p>from collections import defaultdict<br>from io import StringIO<br>from matplotlib import pyplot as plt<br>from PIL import Image</p>
+<h2 id="This-is-needed-to-display-the-images"><a href="#This-is-needed-to-display-the-images" class="headerlink" title="This is needed to display the images."></a>This is needed to display the images.</h2><p>#%matplotlib inline</p>
+<h1 id="This-is-needed-since-the-notebook-is-stored-in-the-object-detection-folder"><a href="#This-is-needed-since-the-notebook-is-stored-in-the-object-detection-folder" class="headerlink" title="This is needed since the notebook is stored in the object_detection folder."></a>This is needed since the notebook is stored in the object_detection folder.</h1><p>sys.path.append(“..”)</p>
+<p>from utils import label_map_util</p>
+<p>from utils import visualization_utils as vis_util</p>
+<h1 id="What-model-to-download"><a href="#What-model-to-download" class="headerlink" title="What model to download."></a>What model to download.</h1><p>MODEL_NAME = ‘ssd_mobilenet_v1_coco_11_06_2017’<br>MODEL_FILE = MODEL_NAME + ‘.tar.gz’<br>DOWNLOAD_BASE = ‘<a href="http://download.tensorflow.org/models/object_detection/&#39;">http://download.tensorflow.org/models/object_detection/&#39;</a></p>
+<h1 id="Path-to-frozen-detection-graph-This-is-the-actual-model-that-is-used-for-the-object-detection"><a href="#Path-to-frozen-detection-graph-This-is-the-actual-model-that-is-used-for-the-object-detection" class="headerlink" title="Path to frozen detection graph. This is the actual model that is used for the object detection."></a>Path to frozen detection graph. This is the actual model that is used for the object detection.</h1><p>PATH_TO_CKPT = MODEL_NAME + ‘/frozen_inference_graph.pb’</p>
+<h1 id="List-of-the-strings-that-is-used-to-add-correct-label-for-each-box"><a href="#List-of-the-strings-that-is-used-to-add-correct-label-for-each-box" class="headerlink" title="List of the strings that is used to add correct label for each box."></a>List of the strings that is used to add correct label for each box.</h1><p>PATH_TO_LABELS = os.path.join(‘data’, ‘mscoco_label_map.pbtxt’)</p>
+<p>NUM_CLASSES = 90</p>
+<p>#download model<br>#opener = urllib.request.URLopener()<br>#下载模型，如果已经下载好了下面这句代码可以注释掉<br>#opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)<br>tar_file = tarfile.open(MODEL_FILE)<br>for file in tar_file.getmembers():<br>  file_name = os.path.basename(file.name)<br>  if ‘frozen_inference_graph.pb’ in file_name:</p>
+<pre><code>tar_file.extract(file, os.getcwd())</code></pre><p>#Load a (frozen) Tensorflow model into memory.<br>detection_graph = tf.Graph()<br>with detection_graph.as_default():<br>  od_graph_def = tf.GraphDef()<br>  with tf.gfile.GFile(PATH_TO_CKPT, ‘rb’) as fid:</p>
+<pre><code>serialized_graph = fid.read()
+od_graph_def.ParseFromString(serialized_graph)
+tf.import_graph_def(od_graph_def, name=&apos;&apos;)</code></pre><p>#Loading label map<br>label_map = label_map_util.load_labelmap(PATH_TO_LABELS)<br>categories = label_map_util.convert_label_map_to_categories(label_map, max_num_classes=NUM_CLASSES, use_display_name=True)<br>category_index = label_map_util.create_category_index(categories)<br>#Helper code<br>def load_image_into_numpy_array(image):<br>  (im_width, im_height) = image.size<br>  return np.array(image.getdata()).reshape(</p>
+<pre><code>(im_height, im_width, 3)).astype(np.uint8)</code></pre></li>
+</ul>
+<pre><code># For the sake of simplicity we will use only 2 images:
+# image1.jpg
+# image2.jpg
+# If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
+PATH_TO_TEST_IMAGES_DIR = &apos;test_images&apos;
+TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, &apos;image{}.jpg&apos;.format(i)) for i in range(1, 5) ]
+
+# Size, in inches, of the output images.
+IMAGE_SIZE = (30, 20)
+
+def run_inference_for_single_image(image, graph):
+  with graph.as_default():
+    with tf.Session() as sess:
+      # Get handles to input and output tensors
+      ops = tf.get_default_graph().get_operations()
+      all_tensor_names = {output.name for op in ops for output in op.outputs}
+      tensor_dict = {}
+      for key in [
+          &apos;num_detections&apos;, &apos;detection_boxes&apos;, &apos;detection_scores&apos;,
+          &apos;detection_classes&apos;, &apos;detection_masks&apos;
+      ]:
+        tensor_name = key + &apos;:0&apos;
+        if tensor_name in all_tensor_names:
+          tensor_dict[key] = tf.get_default_graph().get_tensor_by_name(
+              tensor_name)
+      if &apos;detection_masks&apos; in tensor_dict:
+        # The following processing is only for single image
+        detection_boxes = tf.squeeze(tensor_dict[&apos;detection_boxes&apos;], [0])
+        detection_masks = tf.squeeze(tensor_dict[&apos;detection_masks&apos;], [0])
+        # Reframe is required to translate mask from box coordinates to image coordinates and fit the image size.
+        real_num_detection = tf.cast(tensor_dict[&apos;num_detections&apos;][0], tf.int32)
+        detection_boxes = tf.slice(detection_boxes, [0, 0], [real_num_detection, -1])
+        detection_masks = tf.slice(detection_masks, [0, 0, 0], [real_num_detection, -1, -1])
+        detection_masks_reframed = utils_ops.reframe_box_masks_to_image_masks(
+            detection_masks, detection_boxes, image.shape[0], image.shape[1])
+        detection_masks_reframed = tf.cast(
+            tf.greater(detection_masks_reframed, 0.5), tf.uint8)
+        # Follow the convention by adding back the batch dimension
+        tensor_dict[&apos;detection_masks&apos;] = tf.expand_dims(
+            detection_masks_reframed, 0)
+      image_tensor = tf.get_default_graph().get_tensor_by_name(&apos;image_tensor:0&apos;)
+
+      # Run inference
+      output_dict = sess.run(tensor_dict,
+                             feed_dict={image_tensor: np.expand_dims(image, 0)})
+
+      # all outputs are float32 numpy arrays, so convert types as appropriate
+      output_dict[&apos;num_detections&apos;] = int(output_dict[&apos;num_detections&apos;][0])
+      output_dict[&apos;detection_classes&apos;] = output_dict[
+          &apos;detection_classes&apos;][0].astype(np.uint8)
+      output_dict[&apos;detection_boxes&apos;] = output_dict[&apos;detection_boxes&apos;][0]
+      output_dict[&apos;detection_scores&apos;] = output_dict[&apos;detection_scores&apos;][0]
+      if &apos;detection_masks&apos; in output_dict:
+        output_dict[&apos;detection_masks&apos;] = output_dict[&apos;detection_masks&apos;][0]
+  return output_dict
+for image_path in TEST_IMAGE_PATHS:
+  image = Image.open(image_path)
+  # the array based representation of the image will be used later in order to prepare the
+  # result image with boxes and labels on it.
+  image_np = load_image_into_numpy_array(image)
+  # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
+  image_np_expanded = np.expand_dims(image_np, axis=0)
+  # Actual detection.
+  output_dict = run_inference_for_single_image(image_np, detection_graph)
+  # Visualization of the results of a detection.
+  vis_util.visualize_boxes_and_labels_on_image_array(
+      image_np,
+      output_dict[&apos;detection_boxes&apos;],
+      output_dict[&apos;detection_classes&apos;],
+      output_dict[&apos;detection_scores&apos;],
+      category_index,
+      instance_masks=output_dict.get(&apos;detection_masks&apos;),
+      use_normalized_coordinates=True,
+      line_thickness=1)
+  plt.figure(figsize=IMAGE_SIZE)
+  plt.imshow(image_np)</code></pre><p>tips:如果在Spyder中跑不出图片，需要再运行.py之前在terminal输入%matplotlib inline</p>
+<p>[1]</p>
+<pre><code># Imports
+import numpy as np
+import os
+import six.moves.urllib as urllib
+import sys
+import tarfile
+import tensorflow as tf
+import zipfile
+
+from distutils.version import StrictVersion
+from collections import defaultdict
+from io import StringIO
+from matplotlib import pyplot as plt
+from PIL import Image
+
+# This is needed since the notebook is stored in the object_detection folder.
+sys.path.append(&quot;..&quot;)#当前路径是:models/research/object_detection,cd .. 后即返回上一级目录，目的是为了导入object_detection模块
+
+from object_detection.utils import ops as utils_ops
+
+if StrictVersion(tf.__version__) &lt; StrictVersion(&apos;1.9.0&apos;):#Tensorflow版本比较
+  raise ImportError(&apos;Please upgrade your TensorFlow installation to v1.9.* or later!&apos;)</code></pre><ul>
+<li>Modules：<br>numpy：NumPy is the fundamental package for scientific computing with Python.<br>os — <strong>Miscellaneous</strong> operating system interfaces<br>urllib — URL handling modules<br>sys — System-specific <strong>parameters</strong> and functions<br>tarfile — Read and write tar archive files<br>zipfile — Work with ZIP archives<br>StrictVersion — 比较版本<br>Collections — This module <strong>implements</strong> specialized container datatypes providing alternatives to Python’s general purpose built-in containers, dict, list, set, and tuple.<br>io — The io module provides the Python interfaces to <strong>stream</strong> handling. The <strong>builtin</strong> open function is defined in this module.<br><strong>matplotlib</strong> — This is an object-oriented <strong>plotting</strong> library.<br><strong>PIL</strong> — Pillow (Fork of the Python Imaging Library)<br>utils：实用程序类</li>
+</ul>
+<p>[2]</p>
+<pre><code>#Env setup
+# This is needed to display the images.用来显示图片
+# %matplotlib inline 会出错 安装Jupyter插件
+#%%</code></pre><p>[3]</p>
+<pre><code># Object detection imports
+# Here are the imports from the object detection module.
+
+from utils import label_map_util
+
+from utils import visualization_utils as vis_util</code></pre><ul>
+<li>Modules:<ul>
+<li>module utils.label_map_util:Label map <strong>utility</strong> functions.</li>
+<li>module utils.visualization_utils<br>A set of functions that are used for visualization.<br>These functions often receive an image, perform some visualization on the image. The functions do not return a value, instead they modify the image itself.（在原图上进行标记用的Modules）</li>
+</ul>
+</li>
+</ul>
+<p>[4]</p>
+<pre><code>#[4]
+# Model preparation
+# Variables
+# Any model exported using the export_inference_graph.py tool can be loaded here simply by changing PATH_TO_FROZEN_GRAPH to point to a new .pb file.
+#所有用export_inference_graph.py这个工具导出的模型，都可以通过将PATH_TO_FROZEN_GRAPH转换成新的.pb文件来导入到工程文件中。
+
+# By default we use an &quot;SSD with Mobilenet&quot; model here. See the detection model zoo for a list of other models that can be run out-of-the-box with varying speeds and accuracies.
+#我们使用SSDwithMobilenet这个模型
+
+# What model to download.
+MODEL_NAME = &apos;ssd_mobilenet_v1_coco_2017_11_17&apos;
+MODEL_FILE = MODEL_NAME + &apos;.tar.gz&apos;#模型名称
+DOWNLOAD_BASE = &apos;http://download.tensorflow.org/models/object_detection/&apos;#模型父地址
+
+# Path to frozen detection graph. This is the actual model that is used for the object detection.
+PATH_TO_FROZEN_GRAPH = MODEL_NAME + &apos;/frozen_inference_graph.pb&apos;
+
+# List of the strings that is used to add correct label for each box.
+PATH_TO_LABELS = os.path.join(&apos;data&apos;, &apos;mscoco_label_map.pbtxt&apos;)</code></pre><p>[5]</p>
+<pre><code>#Download Model
+opener = urllib.request.URLopener()
+opener.retrieve(DOWNLOAD_BASE + MODEL_FILE, MODEL_FILE)
+tar_file = tarfile.open(MODEL_FILE)
+for file in tar_file.getmembers():
+  file_name = os.path.basename(file.name)
+  if &apos;frozen_inference_graph.pb&apos; in file_name:
+    tar_file.extract(file, os.getcwd())</code></pre><ul>
+<li>urllib.request<br>The urllib.request module defines functions and classes which help in opening URLs (mostly HTTP) in a complex world — basic and digest <strong>au_th_entication</strong>, <strong>redirections</strong>, cookies and more.</li>
+<li>urllib.request.urlopen(url, data=None, [timeout, ]*, cafile=None, capath=None, cadefault=False, context=None )<br>Open the URL url, which can be either a string or a Request object. data must be an object specifying additional data to be sent to the server, or None if no such data is needed. See Request for details</li>
+<li>def getmembers()<br>Return the members of the archive as a list of TarInfo objects. The list has the same order as the members in the archive.<br>-def basename(p)<br>Returns the final component of a pathname<br>-def extract(member, path=””, set_attrs=True, numeric_owner=False)<br>Extract a member from the archive to the current working directory, using its full name. Its file information is extracted as accurately as possible. member’ may be a filename or a TarInfo object. You can specify a different directory usingpath’. File attributes (owner, mtime, mode) are set unless set_attrs’ is False. Ifnumeric_owner` is True, only the numbers for user/group names are used and not the names.</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/T1mu/T1mu.github.io/2019/01/17/e5-b0-8f-e7-8b-bc-e6-af-ab-e8-87-aa-e5-ae-9a-e4-b9-89-e7-9f-ad-e8-af-ad-rime-e5-8f-8c-e6-8b-bc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TimJ3ly">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T1mu's Blog/汤国放的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/17/e5-b0-8f-e7-8b-bc-e6-af-ab-e8-87-aa-e5-ae-9a-e4-b9-89-e7-9f-ad-e8-af-ad-rime-e5-8f-8c-e6-8b-bc/" itemprop="url"> Ubuntu 18.04 下安装shadowsocks		</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-17T13:27:03+08:00">
+                2019-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="1-下载所需工具"><a href="#1-下载所需工具" class="headerlink" title="1. 下载所需工具"></a>1. 下载所需工具</h3><p>pip 和 shadowsocks</p>
+<pre><code>sudo apt-get install python-pip
+sudo pip install shadowsocks</code></pre><p>缺什么下什么就对了</p>
+<h3 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h3><pre><code>sudo emacs /etc/shadowsocks.json
+
+{
+    &quot;server&quot;:&quot;my_server_ip&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;mypassword&quot;,
+    &quot;timeout&quot;:520,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+}</code></pre><p>缺emacs就装emacs</p>
+<p><img src="https://img-blog.csdnimg.cn/2019011720585319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="![在这里插入图片描述](https://img-blog.csdnimg.cn/20190117205626730.png"></p>
+<p>编辑文件如下图所示：  </p>
+<p>（此处截图使用的是Flameshot）</p>
+<h3 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h3><pre><code>sslocal -c /etc/shadowsocks.json</code></pre><p><img src="https://img-blog.csdnimg.cn/20190117210031659.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="4-系统配置"><a href="#4-系统配置" class="headerlink" title="4. 系统配置"></a>4. 系统配置</h2><p><img src="https://img-blog.csdnimg.cn/2019011721015952.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L25lbmluZWU=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>如图所示：  </p>
+<p>挖坑：自动网络代理如何设置（像windows一样的自动切换全局和局部）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -665,14 +1988,32 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
           
 
         </nav>
