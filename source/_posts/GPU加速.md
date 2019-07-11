@@ -1,5 +1,5 @@
 ---
-title: GPU加速
+title: GPU加速/CUDA安装
 date: 2019-06-27 12:26:10
 tags:
 - GPU
